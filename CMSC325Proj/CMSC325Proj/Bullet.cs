@@ -87,7 +87,7 @@ namespace CMSC325Proj
                     ++j;
                 }
 
-            // this is getting a hairy twisted now :(
+            // this is getting twisted now :(
             if (removebullet) this.active = false;
 
         }
