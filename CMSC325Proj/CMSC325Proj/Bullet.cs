@@ -1,6 +1,6 @@
 ﻿// CMSC325 Project
 // Greg Velichansky
-// UMUC id#: 0031695
+// UMUC 
 
 using System;
 using System.Collections.Generic;
@@ -77,7 +77,7 @@ namespace CMSC325Proj
                         Game1.TestLineSphereIntersection(world.Translation,
                             future,
                             who.world.Translation,
-                            who.model.Meshes[0].BoundingSphere.Radius*1.1f))  // XXX are we supposed to add BoundingSphere.Center to the translation as an offset? feck.
+                            who.model.Meshes[0].BoundingSphere.Radius*1.1f))  // XXX are we supposed to add BoundingSphere.Center to the translation as an offset? let's assume not.
                     {
                         who.TakeHit(world.Translation, 0);
                         if (!who.active) game.modelManager.models.RemoveAt(j); // I guess they asploded?

@@ -1,6 +1,6 @@
 ﻿// CMSC325 Project
 // Greg Velichansky
-// UMUC id#: 0031695
+// UMUC 
 
 using System;
 using System.Collections.Generic;
@@ -62,19 +62,10 @@ namespace CMSC325Proj
         /// <param name="roll"></param>
         public void Turn(float yaw, float pitch, float roll) // pick one!
         {
-#if false
-            // this version is less offensive to my physics sensibilities but bugs the shit out of me when I'm trying to turn my damn spaceship
-            if (yaw != 0) angular_thrust = new Vector3(0, yaw, 0);
-            else if (pitch != 0) angular_thrust = new Vector3(pitch, 0, 0);
-            else if (roll != 0) angular_thrust = new Vector3(0, 0, roll);
-#else
             // this is how I expect a videogame to behave, apparently
             if (yaw != 0) angular_thrust.Y = yaw;
             if (pitch != 0) angular_thrust.X = pitch;
             if (roll != 0) angular_thrust.Z = roll; // you wanna do a barrel roll? well TOO BAD. YOU ACTUALLY CAN'T. IT'S NOT IMPLEMENTED IN THE CONTROLS AND YOU DON'T NEED IT. STFU, STAR FOX.
-#endif
-
-            // else wtf???
         }
 
 

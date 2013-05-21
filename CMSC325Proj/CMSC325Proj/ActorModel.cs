@@ -1,6 +1,6 @@
 ﻿// CMSC325 Project
 // Greg Velichansky
-// UMUC id#: 0031695
+// UMUC 
 
 using System;
 using System.Collections.Generic;
@@ -68,7 +68,7 @@ namespace CMSC325Proj
 
         // things have a velocity!
         // velocity is in m/s
-        // (note: one XNA coordinate unit is one meter for our purposes, I guess... fuck it)
+        // (note: one XNA coordinate unit is one meter for our purposes)
         public Vector3 velocity; // { get; protected set; }
         
         // things have a velocity d/dt!
@@ -154,7 +154,7 @@ namespace CMSC325Proj
 
             if (pitch != 0.0F)
             {
-                // rotate about the X axis or... uh... Right vector? this doesn't depend on handedness, that's only Z, right? fuck math in the ear tbh.
+                // rotate about the X axis or... uh... Right vector? this doesn't depend on handedness, that's only Z, right? probably also Y?
                 rot = Quaternion.CreateFromAxisAngle(rotation_matrix.Right, pitch);
 #if false
                 rotation = Quaternion.Multiply(rot, rotation);
@@ -166,7 +166,7 @@ namespace CMSC325Proj
 
             if (roll != 0.0F)
             {
-                // rotate about the Z axis or... uh... Forward vector? This DOES depend on handedness, does it not? feck.
+                // rotate about the Z axis or... uh... Forward vector? This DOES depend on handedness, does it not?
                 // no, perhaps the handedness only matters for the projection; math in an object's local space doesn't change
                 rot = Quaternion.CreateFromAxisAngle(rotation_matrix.Forward, roll);
 #if false

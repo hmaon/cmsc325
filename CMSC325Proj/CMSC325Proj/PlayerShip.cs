@@ -1,6 +1,6 @@
 ﻿// CMSC325 Project
 // Greg Velichansky
-// UMUC id#: 0031695
+// UMUC 
 
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace CMSC325Proj
             base.TakeHit(whence, future_use);
         }
 
-        // the player's ship is controlled through some shitty controls that are terrible :V
+        // the player's ship is controlled through some terrible controls :V
         // sucks to be the player
         public override void UpdateActions(GameTime gameTime)
         {

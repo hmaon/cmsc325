@@ -1,6 +1,6 @@
 ﻿// CMSC325 Project
 // Greg Velichansky
-// UMUC id#: 0031695
+// UMUC 
 
 // bad AI implemented here :D
 
