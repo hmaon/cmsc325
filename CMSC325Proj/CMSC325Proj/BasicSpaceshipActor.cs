@@ -32,7 +32,7 @@ namespace CMSC325Proj
         // individual thrusters aren't modeled right now
         // that can be implemented later once we implement damage and burnout of individual thruster modules
 
-        protected Vector3 angular_thrust; // only one may be set at a time because physics blows and isn't fun anyway
+        protected Vector3 angular_thrust; // only one may be set at a time because physics is hard and the results aren't fun anyway
         // the values are for pitch, yaw, roll, as in rotations about x,y,z; derp
 
 
