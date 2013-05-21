@@ -65,7 +65,7 @@ namespace CMSC325Proj
             // this is how I expect a videogame to behave, apparently
             if (yaw != 0) angular_thrust.Y = yaw;
             if (pitch != 0) angular_thrust.X = pitch;
-            if (roll != 0) angular_thrust.Z = roll; // you wanna do a barrel roll? well TOO BAD. YOU ACTUALLY CAN'T. IT'S NOT IMPLEMENTED IN THE CONTROLS AND YOU DON'T NEED IT. STFU, STAR FOX.
+            if (roll != 0) angular_thrust.Z = roll; // you wanna do a barrel roll? well TOO BAD. YOU ACTUALLY CAN'T. IT'S NOT IMPLEMENTED IN THE CONTROLS.
         }
 
 
