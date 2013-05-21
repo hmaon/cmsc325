@@ -160,7 +160,7 @@ namespace CMSC325Proj
                 if (this == Game1.main_instance.protagonist) Game1.main_instance.soundPewPew.Play(); // play a horrid atari-sounding noise
 
                 // that last method invocation is a mess of dependencies on static class variables, more or less
-                // perhaps there's something wrong with the design? OFW.
+                // perhaps there's something wrong with the design? oh well.
             }
         }
     }
