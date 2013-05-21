@@ -1,0 +1,208 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<link rel="StyleSheet" href="Intersection%20of%20a%20Line%20and%20a%20Sphere%20%28or%20circle%29_files/pdbstyle.css" type="text/css" media="all">
+<title>Intersection of a Line and a Sphere (or circle)</title></head>
+<body bgcolor="#ffffff">
+
+<center>
+<h1>Intersection of a Line and a Sphere (or circle)</h1>
+Written by <a href="http://paulbourke.net/geometry/">Paul Bourke</a><br>
+November 1992<p>
+<a href="http://paulbourke.net/geometry/sphereline/raysphere.c">C code example</a> by author<br>
+<a href="http://paulbourke.net/geometry/sphereline/source.cpp">Source code</a> example by: Iebele Abel.<br>
+<a href="http://paulbourke.net/geometry/sphereline/LineIntersect.bas">Sphere/ellipse and line intersection code</a> 
+for Visual Basic by Adrian DeAngelis.<br>
+LISP version for AutoCAD (and Intellicad) by Andrew Bennett 
+<a href="http://paulbourke.net/geometry/sphereline/intC2.lsp">intC2.lsp</a> and 
+<a href="http://paulbourke.net/geometry/sphereline/intC2_app.lsp">intC2_app.lsp</a>.
+</p></center>
+
+<p></p><hr><p>
+
+</p><center><img src="Intersection%20of%20a%20Line%20and%20a%20Sphere%20%28or%20circle%29_files/linesphere1.gif"></center>
+
+<p align="justify">
+Points <b>P</b> (x,y) on a line defined by two points 
+<b>P</b><sub>1</sub> (x<sub>1</sub>,y<sub>1</sub>,z<sub>1</sub>) and
+<b>P</b><sub>2</sub> (x<sub>2</sub>,y<sub>2</sub>,z<sub>2</sub>) is 
+described by
+</p>
+
+<center>
+<b>P</b> = <b>P</b><sub>1</sub> + u (<b>P</b><sub>2</sub> - 
+<b>P</b><sub>1</sub>)<p>
+</p></center>
+
+<p align="justify">
+or in each coordinate
+</p>
+
+<center>
+x = x<sub>1</sub> + u (x<sub>2</sub> - x<sub>1</sub>)<br>
+y = y<sub>1</sub> + u (y<sub>2</sub> - y<sub>1</sub>)<br>
+z = z<sub>1</sub> + u (z<sub>2</sub> - z<sub>1</sub>)<p>
+</p></center>
+
+<p align="justify">
+A sphere centered at <b>P</b><sub>3</sub> 
+(x<sub>3</sub>,y<sub>3</sub>,z<sub>3</sub>) 
+with radius r is described by
+</p>
+
+<center>
+(x - x<sub>3</sub>)<sup>2</sup> + 
+(y - y<sub>3</sub>)<sup>2</sup> + 
+(z - z<sub>3</sub>)<sup>2</sup>  
+= r<sup>2</sup>
+</center>
+
+<p align="justify">
+Substituting the equation of the line into the sphere gives a quadratic
+equation of the form
+</p>
+
+<center>a u<sup>2</sup> + b u + c = 0</center><p>
+
+</p><p align="justify">
+where:
+</p>
+
+<center>
+a = (x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + 
+(y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup> + 
+(z<sub>2</sub> - z<sub>1</sub>)<sup>2</sup>
+<p> 
+b = 2[
+(x<sub>2</sub> - x<sub>1</sub>) (x<sub>1</sub> - x<sub>3</sub>) + 
+(y<sub>2</sub> - y<sub>1</sub>) (y<sub>1</sub> - y<sub>3</sub>) +
+(z<sub>2</sub> - z<sub>1</sub>) (z<sub>1</sub> - z<sub>3</sub>) 
+]
+</p><p>
+c = x<sub>3</sub><sup>2</sup> + 
+y<sub>3</sub><sup>2</sup> + 
+z<sub>3</sub><sup>2</sup> +
+x<sub>1</sub><sup>2</sup> +
+y<sub>1</sub><sup>2</sup> + 
+z<sub>1</sub><sup>2</sup> -
+2[x<sub>3</sub> x<sub>1</sub> + 
+y<sub>3</sub> y<sub>1</sub> +
+z<sub>3</sub> z<sub>1</sub>] 
+- r<sup>2</sup>
+</p></center>
+
+<p align="justify">
+The solutions to this quadratic are described by
+</p>
+
+<center><img src="Intersection%20of%20a%20Line%20and%20a%20Sphere%20%28or%20circle%29_files/sphereline4.gif"></center>
+<p>
+
+</p><p align="justify">
+The exact behaviour is determined by the expression within the square root</p><p>
+</p><center>b * b - 4 * a * c </center>
+<p></p>
+
+<ul>
+<li><p align="justify">
+If this is less than 0 then the line does not intersect the sphere.
+</p>
+</li><li><p align="justify">
+If it equals 0 then the line is a tangent to the sphere intersecting it at
+one point, namely at u = -b/2a.
+</p>
+</li><li><p align="justify">
+If it is greater then 0 the line intersects the sphere at two points.
+</p>
+</li></ul>
+
+<p align="justify">
+To apply this to two dimensions, that is, the intersection of a line
+and a circle simply remove the z component from the above mathematics.
+</p>
+
+<h3>Line Segment</h3>
+<p align="justify">
+For a line segment between <b>P</b><sub>1</sub> and <b>P</b><sub>2</sub>
+there are 5 cases to consider.
+</p>
+<ul>
+<li><p align="justify">
+Line segment doesn't intersect and on outside of sphere, in which case both values of 
+u wll either be less than 0 or greater than 1.
+</p>
+</li><li><p align="justify">
+Line segment doesn't intersect and is inside sphere, in which case one value of 
+u will be negative and the other greater than 1.
+</p>
+</li><li><p align="justify">
+Line segment intersects at one point, in which case one value of 
+u will be between 0 and 1 and the other not.
+</p>
+</li><li><p align="justify">
+Line segment intersects at two points, in which case both values of 
+u will be between 0 and 1.
+</p>
+</li><li><p align="justify">
+Line segment is tangential to the sphere, in which case both values of 
+u will be the same and between 0 and 1.
+</p>
+</li></ul>
+
+<p align="justify">
+When dealing with a 
+line segment it may be more efficient to first determine whether the
+line actually intersects the sphere or circle. This is achieved by
+noting that the closest point on the line through 
+<b>P</b><sub>1</sub><b>P</b><sub>2</sub>
+to the point <b>P</b><sub>3</sub> is along a perpendicular from
+<b>P</b><sub>3</sub> to the line. In other words if <b>P</b> is
+the closest point on the line then
+</p>
+
+<center>
+(<b>P</b><sub>3</sub> - <b>P</b>) dot 
+(<b>P</b><sub>2</sub> - <b>P</b><sub>1</sub>) = 0
+</center>
+
+<p align="justify">
+Substituting the equation of the line into this 
+</p>
+
+<center>
+[<b>P</b><sub>3</sub> - <b>P</b><sub>1</sub> - 
+u(<b>P</b><sub>2</sub> - <b>P</b><sub>1</sub>)] dot 
+(<b>P</b><sub>2</sub> - <b>P</b><sub>1</sub>) = 0
+</center>
+
+<p align="justify">
+Solving the above for u = 
+</p>
+
+<center>
+(x<sub>3</sub> - x<sub>1</sub>)(x<sub>2</sub> - x<sub>1</sub>) + 
+(y<sub>3</sub> - y<sub>1</sub>)(y<sub>2</sub> - y<sub>1</sub>) + 
+(z<sub>3</sub> - z<sub>1</sub>)(z<sub>2</sub> - z<sub>1</sub>)
+<br>
+-----------------------------------------------------------
+<br>
+(x<sub>2</sub> - x<sub>1</sub>)(x<sub>2</sub> - x<sub>1</sub>) + 
+(y<sub>2</sub> - y<sub>1</sub>)(y<sub>2</sub> - y<sub>1</sub>) + 
+(z<sub>2</sub> - z<sub>1</sub>)(z<sub>2</sub> - z<sub>1</sub>)
+</center>
+
+<p align="justify">
+If u is not between 0 and 1 then the closest point is not between
+<b>P</b><sub>1</sub> and <b>P</b><sub>2</sub>
+Given u, the intersection point can be found, it must also be less
+than the radius r. If these two tests succeed then the earlier calculation
+of the actual intersection point can be applied.
+</p>
+
+
+
+
+
+
+
+
+</body></html>
